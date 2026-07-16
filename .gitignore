@@ -1,0 +1,23 @@
+# Dataset (too large for GitHub)
+oral/
+replicate/
+
+# Model checkpoints
+checkpoints/
+*.h5
+*.keras
+
+# Keras Tuner trials
+keras_tuner_dir/
+
+# Training logs (optional - remove this line if you want logs in repo)
+# logs/
+
+# Python
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+
+# OS
+.DS_Store
+Thumbs.db
