@@ -1,0 +1,21 @@
+# ResNet50 — Training & Evaluation (C1, C2, C3)
+
+- **C1 (Replica):** Exact reproduction of reference (frozen base, simple head)
+- **C2 (Improved):** Unfrozen base with better head and lower LR
+- **C3 (Tuned):** Keras Tuner hyperparameter optimization
+## 1. Setup
+## 2. Data Pipeline
+## 2.1 Class Weights Computation & Sanity Check
+
+Although the class imbalance ratio (~2.2:1) is moderate, class weights are applied given the medical imaging context where underdiagnosis of any oral condition carries clinical significance.
+## 3. Utilities
+## 4. ResNet50 — C1 (Replica)
+
+Exact replica of reference: ResNet50 frozen, GAP → Dense(128) → Dropout(0.5) → Dense(6). Adam(lr=0.001), 20 epochs.
+## 5. ResNet50 — C2 (Improved)
+
+Full fine-tuning (unfrozen) with better head: GAP → BN → Dense(256, L2) → Dropout(0.4) → Dense(6). Adam(lr=1e-4), 50 epochs.
+## 6. ResNet50 — C3 (Keras Tuner)
+
+BayesianOptimization with frozen base. Search: dense_units, dropout, l2_rate, learning_rate.
+## 7. ResNet50 Family — Mini Comparison
